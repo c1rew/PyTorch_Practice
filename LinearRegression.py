@@ -16,6 +16,7 @@ y = y + torch.randn(x.size())
 plt.scatter(x.data.numpy(), y.data.numpy())
 plt.show()
 
+# plt更新
 plt.ion()
 plt.show()
 
@@ -48,8 +49,8 @@ for epoch in range(epochs_num):
     
     # backward
     optimizer.zero_grad()  # 梯度还原为零
-    loss.backward()
-    optimizer.step()
+    loss.backward()        # 反向传播
+    optimizer.step()       # 更新参数
     
     if (epoch+1) % 20 == 0:
         # print('Epoch[{}/{}], loss: {:.6f}'.format(epoch+1,epochs_num,loss.data.item()))
@@ -61,6 +62,3 @@ for epoch in range(epochs_num):
 
 plt.ioff()
 plt.show()
-
-# for para in model.parameters():
-#     print(para)
